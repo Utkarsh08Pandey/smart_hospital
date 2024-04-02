@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "888b99be-7661-4ee9-b65b-5560f67ddfbb",
+		"name": "appointment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32482645"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patientId\":\"660026e8f7549aced6616a74\",\n    \"doctorId\":\"6608c67f092f6a5d23ded7ac\",\n    \"time\":\"12pm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/appointment/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"appointment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NzY1MH0.rc9U07ocHLKIUx10VESZQZcJTD7x_QddP1MXIJzpX38",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/appointment/read",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"appointment",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doctorId\":\"ab\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/appointment/update?doctorId=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"appointment",
+						"update"
+					],
+					"query": [
+						{
+							"key": "doctorId",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NzY1MH0.rc9U07ocHLKIUx10VESZQZcJTD7x_QddP1MXIJzpX38",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/appointment/delete?doctorId=ab",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"appointment",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "doctorId",
+							"value": "ab"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

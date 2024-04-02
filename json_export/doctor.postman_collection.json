@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "c7ca6772-61dc-495a-82a3-93c18585404a",
+		"name": "doctor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32482645"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4Njg3MH0.9HCPntXRm89BH2p9PAVZrfqjJ0WDagqe-DrV5BRlKAU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"fgeh\",\n    \"speciality\":\"physician\",\n    \"availability\":\"10 am to 12 pm\",\n    \"contact\":\"403843743984\",\n    \"email\":\"utp4441@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/doctor/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"doctor",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NjI2N30.GtoeYpPB_UPwjEWziO2f8Mu2ybr7OkwqcrZtZ3LkT8E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/doctor/read",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctor",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"speciality\":\"abc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/doctor/update?name=fgeh",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctor",
+						"update"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "fgeh"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NjI2N30.GtoeYpPB_UPwjEWziO2f8Mu2ybr7OkwqcrZtZ3LkT8E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/doctor/delete?name=fgehi",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"doctor",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "fgehi"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

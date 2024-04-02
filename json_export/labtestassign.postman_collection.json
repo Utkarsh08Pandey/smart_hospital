@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "4db67df7-b363-4e01-b12f-2c05f36c4a11",
+		"name": "labtestassign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32482645"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doctorId\":\"6608c67f092f6a5d23ded7ac\",\n    \"patientId\":\"660904c6cb518833e69c9770\",\n    \"labTestId\":\"660553cd3aa15b21d50343cb\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/labtestassign/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"labtestassign",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/labtestassign/read",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"labtestassign",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/appointment/update",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"appointment",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

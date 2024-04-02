@@ -1,0 +1,27 @@
+const express =require('express')
+const cors = require('cors')
+const app = express()
+const hospital  =require('./routers/hospitalRouter.js')
+const lab = require('./routers/labRouter.js')
+const doctor= require('./routers/doctorRouter.js')
+const patient= require('./routers/patientRouter.js')
+const appointment = require('./routers/appointmentRouter.js')
+const labtestassign = require('./routers/labTestAssignRouter.js')
+const prescription = require('./routers/prescriptionRouter.js')
+require('dotenv').config()
+require('./dbconfig.js')
+
+app.use(cors())
+app.use(express.json())
+app.use('/hospital',hospital)
+app.use('/lab',lab)
+app.use('/doctor',doctor)
+app.use('/patient',patient)
+app.use('/appointment',appointment)
+app.use('/labtestassign',labtestassign)
+app.use('/prescription',prescription)
+
+const PORT = process.env.PORT 
+app.listen(PORT,()=>{
+    console.log(`Server is listening on port:${PORT}`)
+})

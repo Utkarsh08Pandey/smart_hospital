@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "9a074118-e985-4fdc-b000-440832b68d12",
+		"name": "labtest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32482645"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NzY1MH0.rc9U07ocHLKIUx10VESZQZcJTD7x_QddP1MXIJzpX38",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"abcd\",\n    \"cost\":7000,\n    \"description\":\"hellop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/lab/create",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"lab",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NzY1MH0.rc9U07ocHLKIUx10VESZQZcJTD7x_QddP1MXIJzpX38",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/lab/read",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lab",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cost\":74393904830490\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/lab/update?name=abcd",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"lab",
+						"update"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "abcd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWxieUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRPYTN4VmhaVDRLdy9EZFhYR3lnTGkudnUwbFZjdzNtcjRpTjM4a1BlU0J4a1E4YUVJMzVxcSIsImlhdCI6MTcxMTI4NzY1MH0.rc9U07ocHLKIUx10VESZQZcJTD7x_QddP1MXIJzpX38",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/lab/delete?name=abcde",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lab",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "abcde"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "ce01f2ce-cd26-4fa0-a514-f34c2cbb339d",
+		"name": "patient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32482645"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"utkarsh\",\n    \"email\":\"utkarsh@gmail.com\",\n    \"password\":\"helloutkarsh\",\n    \"phoneNumber\":9106910438\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/patient/register",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"patient",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"utkarsh@gmail.com\",\n    \"password\":\"helloutkarsh\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/patient/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"patient",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
