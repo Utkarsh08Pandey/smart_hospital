@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"fgeh\",\n    \"speciality\":\"physician\",\n    \"availability\":\"10 am to 12 pm\",\n    \"contact\":\"403843743984\",\n    \"email\":\"utp4441@gmail.com\"\n}",
+					"raw": "{\n    \"name\":\"fgeh\",\n    \"speciality\":\"physician\",\n    \"availability\":\"10 am to 12 pm\",\n    \"contact\":\"403843743984\",\n    \"email\":\"utp4441@gmail.com\",\n    \"password\":\"12345\",\n    \"appointment\":\"6608c827b5968cce740bc661\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,6 +139,14 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

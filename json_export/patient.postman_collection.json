@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"utkarsh\",\n    \"email\":\"utkarsh@gmail.com\",\n    \"password\":\"helloutkarsh\",\n    \"phoneNumber\":9106910438\n}",
+					"raw": "{\n    \"name\":\"utkarsh\",\n    \"email\":\"utkarsh@gmail.com\",\n    \"password\":\"helloutkarsh\",\n    \"phoneNumber\":9106910438,\n    \"lab\":\"660938d97d3257aa9f39774f\",\n    \"prescription\":\"660925036ec95af87ec21ef9\",\n    \"appointment\":\"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -57,6 +57,25 @@
 					"path": [
 						"patient",
 						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/patient/dashboard",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"patient",
+						"dashboard"
 					]
 				}
 			},

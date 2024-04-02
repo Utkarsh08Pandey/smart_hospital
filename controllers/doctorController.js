@@ -54,4 +54,15 @@ const deleteDoctor = async(req,res)=>{
           })
 }
 
-module.exports = {create,read,update,deleteDoctor}
+
+const dashboard = (req,res) =>{
+  doctor.find().populate('appointment')
+         .then((data)=>res.send({data}))
+         .catch((e)=>console.log(e,'error in fetching patient'));
+}
+
+
+
+
+
+module.exports = {create,read,update,deleteDoctor,dashboard}
