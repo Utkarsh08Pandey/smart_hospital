@@ -41,19 +41,19 @@ const login = (req, res) => {
 };
 
 const dashboard = (req,res) =>{
-  const _id = req.params.id
+  const _id = req.params.id;
   patient.findById({_id})
          .then(async(data)=>{
-            // const _id = req.params.appointmentid
-            // const _id = req.params.prescriptionid
-            const Appointment = await appointment.findById({_id})
-            const Prescription = await prescription.findById({_appointmentid})
-            const Lab = await lab.findById({_prescriptionid})
-            const dashboardData = {Appointment,Prescription,Lab}
+            const Appointment = await appointment.find({patientId:_id})
+            const Prescription = await prescription.find({patientId:_id})
+            const LabTestAssign = await lab.find({patientId:_id})
+            const dashboardData = {Appointment,Prescription,LabTestAssign}
             res.send({dashboardData})
 
          })
-         .catch((e)=>console.log(e,'error in fetching patient'));
+         .catch((e)=>{
+            res.send({error:e})
+         });
 }
 
 module.exports = { register, login, dashboard }
