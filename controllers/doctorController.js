@@ -54,6 +54,25 @@ const deleteDoctor = async(req,res)=>{
           })
 }
 
+const login = (req, res) => {
+    const password = req.body.password;
+    doctor
+      .findOne({ email: req.body.email })
+      .then((resp) => {
+        let v_password = bcryptjs.compareSync(password, resp.password);
+        let token1 = jsonwebtoken.sign({email:resp.email,password:resp.password},'abc')
+        if (v_password) {
+          res.send({ data: "verified successfully",token1 });
+          return;
+        } else {
+          res.send({ data: "incorrect password" });
+        }
+      })
+      .catch((err)=>{
+          console.log("err--", err)
+          res.send({ data: "incorrect email" })});
+  };
+
 
 const dashboard = (req,res) =>{
   doctor.find().populate('appointment')
@@ -65,4 +84,4 @@ const dashboard = (req,res) =>{
 
 
 
-module.exports = {create,read,update,deleteDoctor,dashboard}
+module.exports = {create,read,update,deleteDoctor,login,dashboard}
