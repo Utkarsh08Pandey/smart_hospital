@@ -9,10 +9,10 @@ const doctorSchema = new mongoose.Schema(
         contact:Number,
         email:String,
         password:String,
-        appointment:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'appointment'
-        }
+        // appointment:{
+        //     type:mongoose.Schema.Types.ObjectId,
+        //     ref:'appointment'
+        // }
     }
 )
 
@@ -24,7 +24,7 @@ const JoiSchema = joi.object({
     contact:joi.number().required(),
     email:joi.string().required(),
     password:joi.string().required(),
-    appointment:joi.string().required()
+    // appointment:joi.string().required()
 })  
 
 const doctor = mongoose.model('doctor',doctorSchema)

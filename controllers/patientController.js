@@ -1,4 +1,7 @@
 const {patient,JoiSchema} = require("../models/patientModel.js");
+const {lab} = require('../models/labModel.js')
+const {appointment} = require('../models/appointmentModel.js')
+const prescription  = require('../models/prescriptionModel.js')
 const jsonwebtoken = require('jsonwebtoken')
 const bcryptjs = require("bcryptjs");
 const register = (req, res) => {
@@ -38,10 +41,20 @@ const login = (req, res) => {
 };
 
 const dashboard = (req,res) =>{
-  patient.find().populate('lab').populate('prescription').populate('appointment')
-         .then((data)=>res.send({data}))
+  const _id = req.params.id
+  patient.findById({_id})
+         .then(async(data)=>{
+            // const _id = req.params.appointmentid
+            // const _id = req.params.prescriptionid
+            const Appointment = await appointment.findById({_id})
+            const Prescription = await prescription.findById({_appointmentid})
+            const Lab = await lab.findById({_prescriptionid})
+            const dashboardData = {Appointment,Prescription,Lab}
+            res.send({dashboardData})
+
+         })
          .catch((e)=>console.log(e,'error in fetching patient'));
 }
 
-module.exports = { register, login, dashboard };
+module.exports = { register, login, dashboard }
 
