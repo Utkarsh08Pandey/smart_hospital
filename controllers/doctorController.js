@@ -1,20 +1,30 @@
 const {doctor,JoiSchema} = require('../models/doctorModel.js')
 const jsonwebtoken  = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
-const create = (req,res)=>{
+const create = async(req,res)=>{
     const {error,value} = JoiSchema.validate(req.body)
     const hashPassword = bcryptjs.hashSync(req.body.password,10);
     if(error){
         res.send({error})
       }
       else{
-        value.password= hashPassword
-        const Doctor = new doctor(value);
-         Doctor.save()
-        .then(res.send({ data: "doctor data created" }))
-        .catch((e) => console.log(e));
-      }
+        const exist = await doctor.findOne({email:req.body.email})
+        if(exist){
+          res.send({data:'email already exist'})
+        }
+        else{
+          value.password= hashPassword
+            const Doctor = new doctor(value);
+            Doctor.save()  
+            .then(res.send({ data: "doctor data created" }))
+            .catch((e) =>{
+              res.json(e);
+              console.log(e);
+            });
+          }
+        }
 }
+
 const read = (req,res)=>{
     doctor.find({isDeleted:false})
        .then((data)=>{
