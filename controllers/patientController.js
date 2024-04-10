@@ -40,6 +40,19 @@ const login = (req, res) => {
         res.send({ data: "incorrect email" })});
 };
 
+const read = (req,res)=>{
+  patient.find({isDeleted:false})
+     .then((data)=>{
+          if(!data){
+              res.send({data:'no data'})
+          }
+          else{
+              res.send({data})
+          }
+     })
+     .catch((e)=>console.log('cannot read the patient data list '))
+}
+
 const dashboard = (req,res) =>{
   const _id = req.params.id;
   patient.findById({_id})
@@ -56,5 +69,26 @@ const dashboard = (req,res) =>{
          });
 }
 
-module.exports = { register, login, dashboard }
+const update = (req,res)=>{
+  patient.updateOne({name:req.query.name},req.body)
+      .then((data)=>{
+         res.send({data:'updated successfully'})
+      })
+      .catch((e)=>console.log(e))
+}
+const deletePatient = (req,res)=>{
+     patient.findOne({name:req.query.name})
+     .then((resp)=>{
+           if(!resp){
+               res.send({data:"sorry no patient exist"})
+           }
+           else{
+            patient.deleteOne({name:req.query.name})
+            .then((data)=>res.send({data:'deleted successfully'}))
+            .catch((e)=>console.log(e))       
+           }
+     })
+}
+
+module.exports = { register, login,read,  dashboard, update, deletePatient  }
 

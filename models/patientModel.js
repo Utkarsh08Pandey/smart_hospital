@@ -12,20 +12,7 @@ const patientSchema = new mongoose.Schema(
         email:String,
         height:Number,
         weight:Number,
-        disease:String,
-        prescription:String
-        // lab:{
-        //     type:mongoose.Schema.Types.ObjectId,
-        //     ref:'lab',
-        // },
-        // prescription:{
-        //     type:mongoose.Schema.Types.ObjectId,
-        //     ref:'prescription',
-        // },
-        // appointment:{
-        //     type:mongoose.Schema.Types.ObjectId,
-        //     ref:'appointment',
-        // },
+        isDeleted:Boolean,
     }
 )
 
@@ -38,13 +25,8 @@ const JoiSchema = joi.object({
     email:joi.string().email().required(),
     height:joi.number().required(),
     weight:joi.number().required(),
-    disease:joi.string().required(),
-    prescription:joi.string().required(),
     password:joi.string().required(),
-    // lab:joi.string().required(),
-    // lab:joi.string().required(),
-    // prescription:joi.string().required(),
-    // appointment:joi.string().required(),
+    isDeleted:joi.boolean().default(false),
 })  
 
 const patient = mongoose.model('patient',patientSchema)

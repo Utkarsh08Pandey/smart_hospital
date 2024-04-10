@@ -1,4 +1,5 @@
 const {doctor,JoiSchema} = require('../models/doctorModel.js')
+const jsonwebtoken  = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 const create = (req,res)=>{
     const {error,value} = JoiSchema.validate(req.body)
