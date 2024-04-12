@@ -17,6 +17,7 @@ const register = async(req, res) => {
     }
     else{
       value.password = hashPassword;
+      value.isDeleted = false;
       const Patient = new patient(value);
       Patient.save()
         .then(res.send({ data: "patient created" }))
