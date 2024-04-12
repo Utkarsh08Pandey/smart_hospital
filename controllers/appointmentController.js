@@ -1,15 +1,15 @@
 const {appointment,JoiSchema} = require('../models/appointmentModel.js')
-const create = (req,res)=>{
+const create = async(req,res)=>{
   try{
     const {error,value} = JoiSchema.validate(req.body)
     if(error){
         res.send({error})
       }
       else{
-        const Apppointment = new appointment(value);
-        Apppointment.save()
-        .then(res.send({ data: "appointment data created" }))
-        .catch((e) => console.log(e));
+          const Apppointment = new appointment(value);
+          Apppointment.save()
+          .then(res.send({ data: "appointment data created" }))
+          .catch((e) => console.log(e));
       }
   }
     catch(e){

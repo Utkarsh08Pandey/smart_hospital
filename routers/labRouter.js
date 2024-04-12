@@ -5,7 +5,7 @@ const MW  = require('../middleware.js')
 
 router.get('/read',read)
 router.post('/create',create)
-router.put('/update',update)
+router.post('/update',update)
 router.delete('/delete',deleteTest)
 
 module.exports = router

@@ -6,7 +6,7 @@ const MW = require('../middleware.js')
 
 router.get('/read',read)
 router.post('/create',create)
-router.put('/update',update)
+router.post('/update',update)
 router.delete('/delete',deleteDoctor)
 router.get('/dashboard',dashboard)
 router.post('/login',login)

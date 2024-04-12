@@ -1,18 +1,24 @@
 const {hospital,JoiSchema} = require("../models/hospitalModel.js");
 const bcryptjs = require("bcryptjs");
 const jsonwebtoken = require('jsonwebtoken')
-const register = (req, res) => {
+const register = async(req, res) => {
   const {error,value} = JoiSchema.validate(req.body)
   const hashPassword = bcryptjs.hashSync(req.body.password,10);
   if(error){
     res.send({error})
   }
   else{
-    value.password= hashPassword
-    const Hospital = new hospital(value);
-    Hospital.save()
-      .then(res.send({ data: "hospital created" }))
-      .catch((e) => console.log(e));
+    const exist = await hospital.findOne({email:req.body.email})
+    if(exist){
+      res.send({data:'email already exist'})
+    }
+    else{
+      value.password= hashPassword
+      const Hospital = new hospital(value);
+      Hospital.save()
+        .then(res.send({ data: "hospital created" }))
+        .catch((e) => console.log(e));
+    }
     }
 };
 

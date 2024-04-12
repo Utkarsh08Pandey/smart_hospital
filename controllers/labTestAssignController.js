@@ -29,13 +29,14 @@ const update = (req,res)=>{
         .catch((e)=>console.log(e))
 }
 const Delete = (req,res)=>{
-    labTestAssign.findOne({name:req.query.name})
+    const _id = req.params.id;
+    labTestAssign.findById(_id)
     .then((resp)=>{
             if(!resp){
                 res.send({data:"sorry no lab data exist"})
             }
             else{
-                labTestAssign.deleteOne({_id:req.query._id})
+                labTestAssign.findByIdAndDelete(_id)
                 .then((data)=>res.send({data:'deleted successfully'}))
                 .catch((e)=>console.log(e))
             }

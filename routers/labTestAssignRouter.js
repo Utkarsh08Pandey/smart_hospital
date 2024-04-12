@@ -4,8 +4,8 @@ const  {create,read,update,Delete} = require('../controllers/labTestAssignContro
 
 router.post('/create',create)
 router.get('/read',read)
-router.put('/update',update)
-router.delete('/delete',Delete)
+router.post('/update',update)
+router.delete('/delete/:id',Delete)
 
 
 module.exports = router;

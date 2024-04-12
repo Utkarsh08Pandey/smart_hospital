@@ -4,21 +4,27 @@ const {appointment} = require('../models/appointmentModel.js')
 const prescription  = require('../models/prescriptionModel.js')
 const jsonwebtoken = require('jsonwebtoken')
 const bcryptjs = require("bcryptjs");
-const register = (req, res) => {
+const register = async(req, res) => {
   const {error,value} = JoiSchema.validate(req.body)
   const hashPassword = bcryptjs.hashSync(req.body.password,10);
   if(error){
     res.send({error})
   }
   else{
-    value.password = hashPassword;
-    const Patient = new patient(value);
-    Patient.save()
-      .then(res.send({ data: "patient created" }))
-      .catch((e) =>{ 
-        console.log(e);
-      });
-  }
+    const exist = await patient.findOne({email:req.body.email})
+    if(exist){
+      res.send({data:'email already exist'})
+    }
+    else{
+      value.password = hashPassword;
+      const Patient = new patient(value);
+      Patient.save()
+        .then(res.send({ data: "patient created" }))
+        .catch((e) =>{ 
+          console.log(e);
+        });
+    }
+    }
 };
 
 const login = (req, res) => {
@@ -69,12 +75,26 @@ const dashboard = (req,res) =>{
          });
 }
 
-const update = (req,res)=>{
-  patient.updateOne({name:req.query.name},req.body)
-      .then((data)=>{
-         res.send({data:'updated successfully'})
-      })
-      .catch((e)=>console.log(e))
+const update = async(req,res)=>{
+  const exist = await patient.findOne({name:req.query.name})
+  if(!exist){
+    res.send({error:'sorry no data found'})
+  }
+  else{
+    if(req.body.password){
+      const hashPassword = bcryptjs.hashSync(req.body.password,10);
+      req.body.password = hashPassword
+    }
+    patient.updateOne({name:req.query.name},req.body)
+        .then((data)=>{
+
+           res.send({data:'updated successfully'})
+        })
+        .catch((e)=>{
+          console.log(e)
+          res.send({error:e})
+        })
+  }
 }
 const deletePatient = (req,res)=>{
      patient.findOne({name:req.query.name})

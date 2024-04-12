@@ -4,7 +4,7 @@ const {create,read,update,Delete} = require('../controllers/prescriptionControll
 
 router.post('/create',create);
 router.get('/read',read);
-router.put('/update',update);
+router.post('/update',update);
 router.delete('/delete',Delete)
 
-module.exports = router;
+module.exports = router;    

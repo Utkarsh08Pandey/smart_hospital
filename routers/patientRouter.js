@@ -6,6 +6,6 @@ router.post('/register',register)
 router.get('/read',read)
 router.post('/login',login)
 router.get('/dashboard/:id',dashboard)
-router.put('/update',update)
+router.post('/update',update)
 router.delete('/deletePatient',deletePatient)
 module.exports = router
